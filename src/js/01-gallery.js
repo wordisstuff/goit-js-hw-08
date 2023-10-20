@@ -18,15 +18,4 @@ const galleryList = galleryItems.map(({ preview, original, description }) =>
 </li>`).join('');
 
 gallery.insertAdjacentHTML('beforeend', galleryList);
-
-// gallery.addEventListener('click', (event) => {
-//     event.preventDefault()
-//     if (!event.target.classList.contains("gallery__image")) {
-//         return;
-//     }
-//     let instance = basicLightbox.create(`
-//     <img src="${event.target.dataset.source}" width="800" height="600">`);
-//     instance.show()
-
-//     gallery.addEventListener('keydown', event => event.key === "Escape" ? instance.close() : instance.visible());
-// })
+new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: 250 });
