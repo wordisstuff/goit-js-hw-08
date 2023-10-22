@@ -1,5 +1,5 @@
 import Player from '@vimeo/player';
-import { throttle } from 'throttle-debounce';
+// import { throttle } from 'throttle-debounce';
 
 const player = new Player('vimeo-player');
 
