@@ -1,10 +1,7 @@
 import Player from '@vimeo/player';
 import { throttle } from 'throttle-debounce';
 
-const player = new Player('vimeo-player', {
-    id: 19231868,
-    width: 640
-});
+const player = new Player('vimeo-player');
 player.on('timeupdate', throttle(1000, function (evnt) {
     const time = evnt.seconds;
     localStorage.setItem('videoplayer-current-time', JSON.stringify(time));
