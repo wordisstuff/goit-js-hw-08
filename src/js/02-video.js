@@ -1,15 +1,15 @@
 import Player from '@vimeo/player';
-// import { throttle } from 'throttle-debounce';
+import throttle from "lodash.throttle";
 
 const player = new Player('vimeo-player');
 
-// player.on('timeupdate', throttle(1000, function (evnt) {
-//     const time = evnt.seconds;
-//     localStorage.setItem('videoplayer-current-time', JSON.stringify(time));
-// }));
-// const currentTime = localStorage.getItem('videoplayer-current-time');
+player.on('timeupdate', throttle(function (evnt) {
+    const time = evnt.seconds;
+    localStorage.setItem('videoplayer-current-time', JSON.stringify(time));
+}, 1000));
+const currentTime = localStorage.getItem('videoplayer-current-time');
 
-// if (currentTime) {
-//     player.setCurrentTime(JSON.parse(currentTime));
-// };
+if (currentTime) {
+    player.setCurrentTime(JSON.parse(currentTime));
+};
 
