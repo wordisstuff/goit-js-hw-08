@@ -3,7 +3,7 @@ import { throttle } from 'throttle-debounce';
 
 const player = new Player('vimeo-player');
 
-player.on('timeupdate', throttle(1000, function (evnt) {
+const sturt = player.on('timeupdate', throttle(1000, function (evnt) {
     const time = evnt.seconds;
     localStorage.setItem('videoplayer-current-time', JSON.stringify(time));
 }));
