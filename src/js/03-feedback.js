@@ -6,6 +6,8 @@ const textarea = form.querySelector('textarea');
 
 let storege = JSON.parse(localStorage.getItem("feedback-form-state"))
 let feedbackText = { email: '', massage: '' };
+input.placeholder = 'твоя пошта';
+textarea.placeholder = 'твоє повідомлення';
 
 if (storege) {
     feedbackText.email = storege.email; feedbackText.massage = storege.massage;
@@ -27,11 +29,11 @@ function onInput(evnt) {
 form.addEventListener('submit', (evnt) => {
     evnt.preventDefault()
     if (!input.value) {
-        let baner = alert('Ваша пошта прозора?')
-        console.log(baner);
-        if (baner === undefined) {
-            input.focus()
-        }
+        input.focus()
+        input.placeholder = 'Вводь свою пошту сюди!';
+    } else if (!textarea.value) {
+        textarea.focus()
+        textarea.placeholder = 'Вводь своє повідомлення сюди!';
     } else {
         console.dir(feedbackText);
         localStorage.removeItem("feedback-form-state");
